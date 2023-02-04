@@ -15,6 +15,10 @@
     function calculateProbability() {
       var probability = document.getElementById("probabilityInput").value;
       var numberOfDraws = document.getElementById("numberOfDrawsInput").value;
+      if (probability > 100) {
+        alert("確率に100%以上の数値が入力されています");
+        return;
+      }
       var result = (1 - (1 - (probability / 100)) ** numberOfDraws) * 100;
       document.getElementById("result").innerHTML = "当たりの確率が" + probability + "%のガチャを" + numberOfDraws + "回引いたときに当たりが出る確率は" + result.toFixed(2) + "%" + "です";
     }
