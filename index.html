@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>当たりの確率がx%のガチャをn回引いた時点で1回以上当たりが出ている確率を計算するサイト</title>
+</head>
+<body>
+  <h1>当たりの確率がx%のガチャをn回引いた時点で1回以上当たりが出ている確率を計算するサイト</h1>
+  <form>
+    当たりの確率 (%): <input type="number" id="probabilityInput"><br><br>
+    引く回数: <input type="number" id="numberOfDrawsInput"><br><br>
+    <button type="button" onclick="calculateProbability()">計算！</button>
+  </form>
+  <p id="result"></p>
+  <script>
+    function calculateProbability() {
+      var probability = document.getElementById("probabilityInput").value;
+      var numberOfDraws = document.getElementById("numberOfDrawsInput").value;
+      var result = (1 - (1 - (probability / 100)) ** numberOfDraws) * 100;
+      document.getElementById("result").innerHTML = "当たりの確率が" + probability + "%のガチャを" + numberOfDraws + "回引いたときに当たりが出る確率は" + result.toFixed(2) + "%" + "です";
+    }
+  </script>
+</body>
+</html>
